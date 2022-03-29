@@ -8,10 +8,10 @@ async function req() {
     const data = await response.json()
     
     write(data)
-    req2()
+    return data.name
 }
     async function req2() {
-    const name = characteres[0]
+    const name = await req()
     console.log(name)
     const response = await fetch("https://rickandmortyapi.com/api/character/?name=" + name)
     const data = await response.json()
